@@ -1,0 +1,2027 @@
+@import "./sass/bootstrap";
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 15px;
+      &:hover {
+        color: #ffc107;
+        transition: 0.4s;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+          color: #ffc107;
+        }
+      }
+    }
+  }
+
+  .social-icons {
+    a {
+      color: #fff;
+      margin: 0 4px;
+      font-size: 1.5rem;
+      &:hover {
+        color: #e2c05b;
+      }
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s; // Smooth transition between themes
+}
+
+body.light-mode {
+  background-color: #f8f9fa; // Light background
+  color: #212529; // Dark text
+}
+
+body.dark-mode {
+  background-color: #212529; // Dark background
+  color: #f8f9fa; // Light text
+}
+
+.navbar-light {
+  background: linear-gradient(
+    90deg,
+    rgba(156, 154, 191, 0.854) 0%,
+    rgb(147, 114, 211) 35%,
+    rgb(66, 90, 95) 100%
+  );
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 755px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; // Ensure the nav links span the full width
+    // Aligns the switch to the right within the collapsed header
+  }
+  .toggle-switch {
+    margin-left: 0; // Remove margin-left to keep it in the right position
+  }
+}
+
+.nav-link {
+  color: #fff !important; // Ensures link color is white
+  margin: 0 15px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  border-radius: 9px;
+  height: 2.4px;
+  background: #020202; // Underline color
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+  margin-top: 4px;
+  margin-left: auto; // Pushes the switch to the right side
+  transition: margin-left 0.3s; // Smooth transition for the switch position
+}
+
+.toggle-switch .form-check-input {
+  width: 40px; // Width of the switch
+  height: 20px; // Height of the switch
+  background-color: #ffffff; // Default background color of the switch track
+  border: none; // Removes default border
+  cursor: pointer; // Pointer cursor for better UX
+  transition: background-color 0.3s, transform 0.3s; // Smooth transition
+}
+
+.toggle-switch .form-check-input:before {
+  content: "";
+  display: block;
+  width: 18px; // Width of the knob
+  height: 18px; // Height of the knob
+  background-color: #151516; // Default knob color
+  border-radius: 50%; // Rounded knob
+  position: relative;
+  top: 1px;
+  left: 1px;
+  transition: background-color 0.3s, transform 0.5s; // Smooth transition
+}
+
+.toggle-switch .form-check-input:checked {
+  background-color: #212529; // Background color when checked
+}
+
+.toggle-switch .form-check-input:checked:before {
+  transform: translateX(18px); // Moves the knob to the right when toggled
+  background-color: #ffffff; // Knob color when checked
+}
+
+/*
+footer {
+  //background: linear-gradient(90deg, rgba(2,0,36,0.854) 0%, rgb(59, 49, 79) 35%, rgb(66, 90, 95) 100%);
+  color: #fff; // White text color
+}
+
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+footer a:hover {
+  color: #ffc107; // Change color on hover
+  text-decoration: underline; // Underline on hover
+}
+
+.social-icon {
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffc107; // Change color on hover
+  transform: scale(1.2); // Slightly enlarge the icon on hover
+}
+
+
+footer .copyright a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+footer .copyright a:hover {
+  text-decoration: underline;
+}*/
+
+//Home page
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  //background-color: #f8f9fa;
+}
+
+.home-text {
+  max-width: 50%;
+}
+
+.greeting {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: -6px;
+}
+
+.hand-icon {
+  color: #ff7f7f;
+}
+.intro {
+  font-size: 0.8rem; // Adjust as needed
+}
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: -9px;
+}
+
+.profession-container {
+  position: relative;
+}
+
+.profession {
+  font-size: 2rem;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.profession-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideIn 1.5s ease-in-out forwards;
+}
+
+.profession-word:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.profession-word:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.line {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 96%;
+  height: 2px;
+  //background-color: #000000;
+  background: linear-gradient(
+    90deg,
+    rgba(80, 67, 67, 0.854) 0%,
+    rgb(168, 147, 183) 35%,
+    rgb(200, 183, 232) 100%
+  );
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+//images
+/*
+.home-text:hover .line {
+  transform: scaleX(1);
+}
+
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-top: 28px;
+}
+
+.home-image img {
+  border-radius: 50%;
+  max-width: 100%;
+  width: 300px; 
+  border: 4px solid black;
+  transition: transform 0.5s, box-shadow 0.5s;}
+.home-image img:hover {
+  transform: scale(1.05); 
+}
+
+.home-image img.clicked {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+}*/
+.home-text:hover .line {
+  transform: scaleX(1);
+}
+
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-top: 28px;
+}
+
+.home-image img {
+  border-radius: 50%;
+  max-width: 100%;
+  width: 300px;
+  border: 4px solid black; // Default border color
+  transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s; // Added transition for border color
+}
+
+.home-image img:hover {
+  transform: scale(1.05);
+}
+
+.home-image img.clicked {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+// Light mode styles
+body.light-mode .home-image img {
+  border-color: #e19136d8; // Border color for light mode
+}
+
+// Dark mode styles
+body.dark-mode .home-image img {
+  border-color: #ee913b; // Border color for dark mode
+}
+
+//home btn
+
+.cta-button {
+  margin-top: 2.5rem;
+}
+
+.btn {
+  padding: 10px 20px;
+
+  background-color: #444;
+  color: #e0dddd;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-outline-dark:hover {
+  color: #3e3939;
+  background-color: #e0dddd;
+  transform: translateY(-5px);
+}
+
+//about,contact,project styling
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.about,
+.projects,
+.contact {
+  padding: 3rem 100px;
+}
+
+.about-content,
+.project-list,
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center !important;
+}
+
+.project-card {
+  background: linear-gradient(
+    135deg,
+    #ed8b0a35,
+    #db9c1598
+  ) !important; // Light mode gradient
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-title {
+  font-size: 1.8rem;
+  color: #ffb006;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  max-width: 800px !important;
+}
+
+.project-technologies {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tech-tag {
+  background: linear-gradient(
+    335deg,
+    #e3e4e5,
+    #d6b358
+  ) !important; // Light mode gradient
+  background-blend-mode: multiply, multiply;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.project-link {
+  color: #f3b248;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.project-link:hover {
+  color: #fff;
+}
+
+.contact-description {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(85, 85, 72);
+  border-radius: 7px;
+
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 15px 30px;
+  background-color: #444;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  color: #3e3939;
+  background-color: #e0dddd;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s; // Smooth transition between themes
+}
+
+body.light-mode {
+  background-color: #f8f9fa; // Light background
+  color: #212529; // Dark text
+}
+
+body.light-mode .footer {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 0.854) 0%,
+    rgb(59, 49, 79) 35%,
+    rgb(66, 90, 95) 100%
+  );
+}
+
+body.light-mode .cta-button .btn {
+  background-color: #444;
+  color: #e0dddd;
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background-color: #f8f9fa; // Light background for form elements
+  color: #212529; // Dark text
+}
+
+body.light-mode .contact-form button {
+  background-color: #444;
+  color: #e0dddd;
+}
+
+body.dark-mode {
+  background-color: #212529; // Dark background
+  color: #f8f9fa; // Light text
+}
+
+body.dark-mode .header {
+  background-color: #333; // Dark header background
+}
+
+body.dark-mode .footer {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 0.854) 0%,
+    rgb(59, 49, 79) 35%,
+    rgb(66, 90, 95) 100%
+  );
+}
+
+body.dark-mode .cta-button .btn {
+  background-color: #444;
+  color: #e0dddd;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #333; // Dark background for form elements
+  color: #f8f9fa; // Light text
+}
+
+body.dark-mode .contact-form button {
+  background-color: #444;
+  color: #e0dddd;
+}
+
+.navbar-light {
+  background: linear-gradient(
+    90deg,
+    rgba(156, 154, 191, 0.854) 0%,
+    rgb(147, 114, 211) 35%,
+    rgb(66, 90, 95) 100%
+  );
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 755px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; // Ensure the nav links span the full width
+  }
+  .toggle-switch {
+    margin-left: 0; // Remove margin-left to keep it in the right position
+  }
+}
+
+.nav-link {
+  color: #fff !important; // Ensures link color is white
+  margin: 0 15px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  border-radius: 9px;
+  height: 2.4px;
+  background: #020202; // Underline color
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+  margin-top: 4px;
+  margin-left: auto; // Pushes the switch to the right side
+  transition: margin-left 0.3s; // Smooth transition for the switch position
+}
+
+.toggle-switch .form-check-input {
+  width: 40px; // Width of the switch
+  height: 20px; // Height of the switch
+  background-color: #ffffff; // Default background color of the switch track
+  border: none; // Removes default border
+  cursor: pointer; // Pointer cursor for better UX
+  transition: background-color 0.3s, transform 0.3s; // Smooth transition
+}
+
+.toggle-switch .form-check-input:before {
+  content: "";
+  display: block;
+  width: 18px; // Width of the knob
+  height: 18px; // Height of the knob
+  background-color: #151516; // Default knob color
+  border-radius: 50%; // Rounded knob
+  position: relative;
+  top: 1px;
+  left: 1px;
+  transition: background-color 0.3s, transform 0.5s; // Smooth transition
+}
+
+.toggle-switch .form-check-input:checked {
+  background-color: #212529; // Background color when checked
+}
+
+.toggle-switch .form-check-input:checked:before {
+  transform: translateX(18px); // Moves the knob to the right when toggled
+  background-color: #ffffff; // Knob color when checked
+}
+
+/*
+footer {
+  //background: linear-gradient(90deg, rgba(2,0,36,0.854) 0%, rgb(59, 49, 79) 35%, rgb(66, 90, 95) 100%);
+  color: #fff; // White text color
+}
+
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+footer a:hover {
+  color: #ffc107; // Change color on hover
+  text-decoration: underline; // Underline on hover
+}
+
+
+.social-icon {
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffc107; // Change color on hover
+  transform: scale(1.2); // Slightly enlarge the icon on hover
+}
+
+
+footer .copyright a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+footer .copyright a:hover {
+  text-decoration: underline;
+}
+
+*/
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}
+
+.home-text {
+  max-width: 50%;
+}
+
+.greeting {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: -6px;
+}
+
+.hand-icon {
+  color: #df8383;
+}
+
+.intro {
+  font-size: 0.8rem; // Adjust as needed
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: -9px;
+}
+
+.profession-container {
+  position: relative;
+}
+
+.profession {
+  font-size: 2rem;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.profession-word {
+  display: inline-block;
+  padding-right: 0.2em;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.profession-word.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: #453e3e;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .header {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .header {
+  background-color: #333;
+  color: #e0dddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.social-icons {
+  a {
+    color: #fff; // Default color for icons
+    margin: 0 4px;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+}
+
+.light-mode .social-icons a {
+  color: #333; // Dark color for light mode
+}
+
+.light-mode .social-icons a:hover {
+  color: #ffc107; // Highlight color for light mode
+}
+
+.dark-mode .social-icons a {
+  color: #fff; // Light color for dark mode
+}
+
+.dark-mode .social-icons a:hover {
+  color: #e2c05b; // Highlight color for dark mode
+}
+
+.hand-icon {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: wave 2s infinite;
+}
+
+//about
+
+.about {
+  // Existing styles...
+
+  .skills {
+    margin-top: 20px;
+
+    .skills-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .skill {
+      margin-bottom: 10px;
+
+      .skill-name {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .progress-bar {
+        background-color: #ddd;
+        border-radius: 5px;
+        height: 20px;
+        position: relative;
+        width: 100%;
+
+        .progress-text {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #333;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// Dark mode styles
+body[data-theme="dark"] {
+  .about {
+    .skills .progress-bar {
+      background-color: #555;
+    }
+
+    .skills .progress-text {
+      color: #fff;
+    }
+  }
+}
+
+//header
+
+// General styles for the header
+.header {
+  background-color: var(--header-bg);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    margin: 0 1rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--link-color);
+    position: relative;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: var(--underline-color);
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .toggle-switch {
+    margin-left: auto;
+  }
+
+  .social-icons a {
+    color: var(--icon-color);
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--icon-hover-color);
+    }
+  }
+}
+
+// Light mode styles
+body.light-mode {
+  --header-bg: #f8f9fa;
+  --link-color: #000000;
+  --underline-color: #111111;
+  --icon-color: #495057;
+  --icon-hover-color: #26282a;
+}
+
+// Dark mode styles
+body.dark-mode {
+  --header-bg: #343a40;
+  --link-color: #f8f9fa;
+  --underline-color: #f8f9fa;
+  --icon-color: #ced4da;
+  --icon-hover-color: #f8f9fa;
+}
+
+//home btn
+
+.cta-button {
+  text-align: center;
+  margin: 2rem 0;
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 11px;
+    margin-right: 4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &.btn-outline-dark {
+      color: #f5f5f5;
+      border: 2px solid #343a40;
+      background-color: transparent;
+
+      &:hover {
+        color: #ffffff;
+        background-color: #343a40;
+        border-color: #343a40;
+      }
+    }
+
+    &.btn-outline-light {
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      background-color: transparent;
+
+      &:hover {
+        color: #343a40;
+        background-color: #ffffff;
+        border-color: #ffffff;
+      }
+    }
+  }
+}
+
+// Light mode styles
+body.light-mode {
+  .cta-button .btn {
+    &.btn-outline-dark {
+      border-color: #8798aa;
+      color: #e7eaee;
+
+      &:hover {
+        background-color: #323436;
+        color: #ffffff;
+      }
+    }
+
+    &.btn-outline-light {
+      border-color: #ffffff;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #ffffff;
+        color: #343a40;
+      }
+    }
+  }
+}
+
+// Dark mode styles
+body.dark-mode {
+  .cta-button .btn {
+    &.btn-outline-dark {
+      border-color: #cac6c6;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #ffffff;
+        color: #363333;
+      }
+    }
+
+    &.btn-outline-light {
+      border-color: #343a40;
+      color: #e9f4ff;
+
+      &:hover {
+        background-color: #343a40;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+//new header
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #f39c12; // Example hover color
+      }
+    }
+  }
+
+  .theme-switcher {
+    margin-left: auto;
+    margin-right: 7px;
+    // Moves the switch to the right side
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin-top: 4px;
+    color: #fff; // Adjust according to your theme
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .social-icons {
+    a {
+      margin: 0 0.5rem;
+      font-size: 1.3rem;
+      color: #fff; // Adjust according to your theme
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #d08c34 !important;
+      }
+    }
+  }
+}
+
+// Light mode styles
+body.light-mode {
+  .header {
+    .theme-switcher {
+      color: #000; // Adjust according to light theme
+    }
+
+    .social-icons a {
+      color: #000; // Adjust according to light theme
+    }
+  }
+}
+
+// Dark mode styles
+body.dark-mode {
+  .header {
+    .theme-switcher {
+      color: #fff; // Adjust according to dark theme
+    }
+
+    .social-icons a {
+      color: #fff; // Adjust according to dark theme
+    }
+  }
+}
+
+.greeting {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 5rem;
+  margin-bottom: -6px;
+}
+
+//contact
+
+.contact {
+  padding: 2rem;
+  background-color: #f4f4f4; // Light background color
+  color: #333; // Dark text color for light mode
+  text-align: center;
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 9px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 9px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &.btn-primary {
+        background-color: #2d2a2a; // Light theme primary color
+        color: #fff;
+
+        &:hover {
+          background-color: #0f0f10; // Darker shade for hover
+        }
+      }
+    }
+  }
+}
+
+// Light mode styles
+body.light-mode {
+  .contact {
+    background-color: #f4f4f4;
+    color: #333;
+
+    .contact-form input,
+    .contact-form textarea {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .contact-form button.btn-primary {
+      background-color: #5d6268;
+      color: #fff;
+      transition: 0.7s;
+
+      &:hover {
+        background-color: #363739;
+      }
+    }
+  }
+}
+
+// Dark mode styles
+body.dark-mode {
+  .contact {
+    background-color: #333; // Dark background color
+    color: #f4f4f4; // Light text color
+
+    .contact-form input,
+    .contact-form textarea {
+      border: 1px solid #555;
+      background-color: #444;
+      color: #f4f4f4;
+    }
+
+    .contact-form button.btn-primary {
+      background-color: #d6ddd8; // Dark theme primary color
+      color: #383333;
+
+      &:hover {
+        background-color: #9a9f9b; // Darker shade for hover
+      }
+    }
+  }
+}
+
+/*
+//new footer
+footer {
+  //background-color: #343a40!important;
+  color: #f7f1f1; // Light text color for light mode
+
+  .container {
+    padding: 2rem 0;
+
+    .text-warning {
+      color:#cb833f;; // Warning text color for light mode
+    }
+
+    a {
+      color: #cb833f; // Link color for light mode
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      color: #fff; // Social icon color for light mode
+      margin: 0 0.5rem;
+
+      &:hover {
+        color: #d7d7d4; // Social icon hover color for light mode
+      }
+    }
+
+    .copyright {
+      color: #ddd; // Copyright text color for light mode
+
+      a {
+        color: #cb833f; // Link color in copyright section
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background-color: #f4f4f4; // Light background color
+    color: #333; // Dark text color
+
+    a {
+      color: #eaedf1; // Link color for light mode
+    }
+
+    .social-icon {
+      color: #f99c45; // Social icon color for light mode
+
+      &:hover {
+        color: #dca93a; // Social icon hover color for light mode
+      }
+    }
+
+    .copyright {
+      color:#f5a254; // Copyright text color for light mode
+      a {
+        color: #cdcfd1; // Link color in copyright section
+      }
+    }
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background-color: #343a40; // Dark background color
+    color: #f4f4f4; // Light text color
+
+    a {
+      color:white; // Link color for dark mode
+    }
+
+    .social-icon {
+      color: #f4f4f4; // Social icon color for dark mode
+
+      &:hover {
+        color:#d77e3f; // Social icon hover color for dark mode
+      }
+    }
+
+    .copyright {
+      color: #f4f4f4; // Copyright text color for dark mode
+      a {
+        color: #f8c200; // Link color in copyright section
+      }
+    }
+  }
+}
+*/
+
+footer {
+  color: #f7f1f1; // Light text color for dark mode
+
+  .container {
+    padding: 2rem 0;
+
+    .text-warning {
+      color: #cb833f; // Warning text color
+    }
+
+    a {
+      color: #cb833f; // Link color
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      color: #fff; // Social icon color
+      margin: 0 0.5rem;
+
+      &:hover {
+        color: #d7d7d4; // Social icon hover color
+      }
+    }
+
+    .copyright {
+      color: #ddd; // Copyright text color
+
+      a {
+        color: #cb833f; // Link color in copyright section
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background-color: rgb(239, 238, 238) !important; // Light background color
+    color: #333 !important; // Dark text color
+
+    .text-warning {
+      color: #cb833f; // Warning text color for light mode
+    }
+
+    a {
+      color: #000000; // Link color for light mode
+    }
+
+    .social-icon {
+      color: #444342; // Social icon color for light mode
+
+      &:hover {
+        color: #dca93a; // Social icon hover color for light mode
+      }
+    }
+
+    .copyright {
+      color: #f5a254; // Copyright text color for light mode
+      a {
+        color: #111212; // Link color in copyright section
+      }
+    }
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background-color: black; // Dark background color
+    color: #f4f4f4; // Light text color
+
+    a {
+      color: white; // Link color for dark mode
+    }
+
+    .social-icon {
+      color: #f4f4f4; // Social icon color for dark mode
+
+      &:hover {
+        color: #d77e3f; // Social icon hover color for dark mode
+      }
+    }
+
+    .copyright {
+      color: #f4f4f4; // Copyright text color for dark mode
+      a {
+        color: #f8c200; // Link color in copyright section
+      }
+    }
+  }
+}
+
+//new
+
+// SCSS for Light and Dark Mode Background
+body {
+  &.light-mode {
+    .app {
+      background: linear-gradient(
+        135deg,
+        #e3e4e5,
+        #cbf1f9
+      ) !important; // Light mode gradient
+      color: #333; // Text color for light mode
+    }
+
+    // Header Styles for Light Mode
+    .header {
+      background-color: #f3eded; // Light background
+      color: #333; // Dark text color
+      a {
+        color: #333; // Link color
+      }
+      .social-icons a:hover {
+        color: #cb833f; // Hover color for social icons
+      }
+    }
+
+    // Footer Styles for Light Mode
+    .footer {
+      background-color: #dcd9d9; // Light background
+      color: #333; // Dark text color
+      a {
+        color: #cb833f; // Link color
+        &:hover {
+          color: #cb833f; // Hover link color
+        }
+      }
+      .social-icon {
+        color: #333; // Social icon color
+        &:hover {
+          color: #cb833f; // Hover social icon color
+        }
+      }
+    }
+  }
+
+  &.dark-mode {
+    .app {
+      background: linear-gradient(
+        135deg,
+        #39393b,
+        #3a3a3c
+      ) !important; // Dark mode gradient
+      color: #f0f0f0; // Light text color
+    }
+
+    // Header Styles for Dark Mode
+    .header {
+      background-color: #3d3d3f; // Dark background
+      color: #f0f0f0; // Light text color
+      a {
+        color: #f0f0f0; // Link color
+      }
+      .social-icons a:hover {
+        color: #f99c45; // Hover color for social icons
+      }
+    }
+
+    // Footer Styles for Dark Mode
+    .footer {
+      background-color: #2e2e30; // Dark background
+      color: #f0f0f0; // Light text color
+      a {
+        color: #f0f0f0; // Link color
+        &:hover {
+          color: #f99c45; // Hover link color
+        }
+      }
+      .social-icon {
+        color: #f0f0f0; // Social icon color
+        &:hover {
+          color: #f99c45; // Hover social icon color
+        }
+      }
+    }
+  }
+}
+
+// Additional styles for other sections
+.main {
+  padding: 20px;
+}
+
+// Styling buttons and forms
+button,
+input,
+textarea {
+  border-radius: 4px;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  outline: none;
+
+  // Button styling for light mode
+  body.light-mode & {
+    background-color: #cb833f;
+    color: #ffffff;
+    &:hover {
+      background-color: #b76b2c; // Hover effect for light mode
+    }
+  }
+
+  // Button styling for dark mode
+  body.dark-mode & {
+    background-color: #f99c45;
+    color: #1c1c1e;
+    &:hover {
+      background-color: #d77e3f; // Hover effect for dark mode
+    }
+  }
+}
+
+//about
+.about {
+  display: flex;
+  flex-direction: column; /* Allows content to flow vertically */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .section-title
+   {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+    -webkit-background-clip: text;
+    color: transparent; /* For text gradient effect */
+  }
+
+  .about-content {
+    max-width: 600px;
+    line-height: 1.6;
+    margin-top: 1rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      margin-top: 2rem;
+
+      .skills-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        color: #f39c12;
+      }
+
+      .skill {
+        margin-bottom: 1rem;
+        text-align: left;
+
+        .skill-name {
+          font-weight: bold;
+        }
+
+        .progress-bar {
+          background-color: #c3baa69e;
+          height: 13px;
+          position: relative;
+          border-radius: 5px;
+          overflow: hidden;
+
+          .progress-text {
+            position: absolute;
+            right: 5px;
+            //top: -20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #f3f3f3;
+          }
+        }
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background: linear-gradient(
+      135deg,
+      #f7efe5,
+      #e0dede
+    ) !important; /* Light mode gradient */
+    color: #333 !important; /* Dark text color */
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background: linear-gradient(
+      135deg,
+      #323639,
+      #0f1012
+    ) !important; /* Dark mode gradient */
+    color: #f4f4f4 !important; /* Light text color */
+  }
+}
+
+.section-title
+{
+ font-size: 2.5rem;
+ font-weight: bold;
+ margin-bottom: 1rem;
+ text-transform: uppercase;
+ background: linear-gradient(90deg, #f39c12, #e74c3c);
+ -webkit-background-clip: text;
+ color: transparent; /* For text gradient effect */
+}
+
+
+
+
+
+
+//projects
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+
+  .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .project-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-technologies {
+      margin-bottom: 1rem;
+      
+      .tech-tag {
+        display: inline-block;
+        background-color: #dcdcdc;
+        color: #333;
+        padding: 0.25rem 0.5rem;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #dba134;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background: linear-gradient(135deg, #dbd8d8, #f9f9f9) !important; /* Light mode gradient */
+    color: #333 !important;
+
+    .project-card {
+      background-color: rgba(219, 209, 209, 0.491) !important;
+      .tech-tag {
+        background-color: #ddd !important;
+        color: #333 !important;
+      }
+    }
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background: linear-gradient(135deg, #212325, #303437) !important; /* Dark mode gradient */
+    color: #f4f4f4 !important;
+
+    .project-card {
+      background-color: rgba(63, 68, 73, 0.8) !important;
+      .tech-tag {
+        background-color: #3b3b3b !important;
+        color: #f4f4f4 !important;
+      }
+    }
+  }
+}
+
+/*
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+
+  .contact-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin:10px;
+    padding: 1px;
+    border: 2px solid transparent; 
+    border-radius: 20px; 
+    background-image: linear-gradient(white, white), linear-gradient(45deg, #e74c3c, #8e44ad); 
+    background-origin: border-box;
+    background-clip: content-box, border-box; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 12px; 
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        border-color: #8e44ad;
+        box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+        outline: none;
+      }
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #8e44ad;
+      border: none;
+      border-radius: 12px; 
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: #e74c3c;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background-color: #f9f9f9 !important;
+    color: #333 !important;
+
+    .contact-form {
+      background-image: linear-gradient(white, white), linear-gradient(45deg, #3498db, #1abc9c);
+    }
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background-color: #2c3e50 !important;
+    color: #f4f4f4 !important;
+
+    .contact-form {
+      background-image: linear-gradient(#34495e, #34495e), linear-gradient(45deg, #9b59b6, #e74c3c); 
+    }
+
+    .contact-description {
+      color: #bbb !important;
+    }
+  }
+}
+*/
+//contact
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #e74c3c, #8e44ad);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .contact-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1.5rem; /* Adds space around the inputs */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    background-color: #fff; /* Background color for light mode */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        border-color: #8e44ad;
+        box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+        outline: none;
+      }
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #8e44ad;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: #e74c3c;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Light mode styles
+  body.light-mode & {
+    background-color: #f9f9f9 !important;
+    color: #333 !important;
+
+    .contact-form {
+      background-color: #fff; /* Light mode background */
+    }
+  }
+
+  // Dark mode styles
+  body.dark-mode & {
+    background: linear-gradient(135deg, #212325, #303437) !important; /* Dark mode gradient */
+    color: #f4f4f4 !important;
+
+    .contact-form {
+      background-color: #34495e; /* Dark mode background */
+    }
+
+    .contact-description {
+      color: #bbb !important;
+    }
+  }
+}
+
+
+//footer btn 
+
+
+.scroll-to-top {
+  background-color: #ff7f50; /* Coral color */
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top.show {
+  display: block; /* Show when active */
+}
+
+.scroll-to-top:hover {
+  background-color: #dc143c; /* Crimson color on hover */
+  transform: translateY(-5px); /* Moves up slightly */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+//contact
+/* src/App.scss or a specific CSS file */
+/* src/App.scss or another CSS file */
+
+/* Hide the close button */
+.Toastify__close-button {
+  display: none; // Remove the close button
+}
+
+/* Customize the toast container */
+.Toastify__toast-container {
+  z-index: 9999; // Ensure the toast is on top of other elements
+}
+
+/* Customize the toast message */
+.Toastify__toast {
+  border-radius: 12px; // Custom border-radius
+  background-color: #333; // Custom background color
+  color: #fff; // Custom text color
+  font-family: 'Arial', sans-serif; // Custom font
+  padding: 16px; // Add padding for better spacing
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Optional shadow for depth
+}
+
+/* Specific styles for success and error toasts */
+.Toastify__toast--success {
+  background-color: #4caf50; // Green background for success
+}
+
+.Toastify__toast--error {
+  background-color: #f44336; // Red background for error
+}
+
